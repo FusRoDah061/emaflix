@@ -2,15 +2,15 @@
   "categorias": [
     {
       "id": 1,
-      "nome":"Front-end",
-      "descricao": "Top",
-      "cor": "#cbd1ff"
+      "name":"Front-end",
+      "description": "Top",
+      "color": "#cbd1ff"
     },
     {
       "id": 2,
-      "nome":"Back-end",
-      "descricao": "Top",
-      "cor": "#cbd1ff"
+      "name":"Back-end",
+      "description": "Top",
+      "color": "#cbd1ff"
     }
   ]
 }

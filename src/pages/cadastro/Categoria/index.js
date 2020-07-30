@@ -27,7 +27,7 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL = 'http://localhost:3001/categorias';
+    const URL = 'https://emaflix-api.herokuapp.com/categorias';
     fetch(URL)
       .then(async (response) => {
         const json = await response.json();
