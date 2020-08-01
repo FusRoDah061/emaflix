@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 function CadastroCategoria() {
   const initialState = {
@@ -12,22 +13,10 @@ function CadastroCategoria() {
   };
 
   const [categories, setCategories] = useState([]);
-  const [values, setValues] = useState(initialState);
-
-  function setValue(key, value) {
-    setValues({
-      ...values,
-      [key]: value,
-    });
-  }
-
-  function handleChange(e) {
-    const { target } = e;
-    setValue(target.getAttribute('name'), target.value);
-  }
+  const { handleChange, values, clearForm } = useForm(initialState);
 
   useEffect(() => {
-    const URL = 'https://emaflix-api.herokuapp.com/categorias';
+    const URL = (window.location.href.includes('localhost')) ? 'http://localhost:3001/categories' : 'https://emaflix-api.herokuapp.com/categories';
     fetch(URL)
       .then(async (response) => {
         const json = await response.json();
@@ -41,7 +30,6 @@ function CadastroCategoria() {
     <PageDefault>
       <h1>
         Cadastro de Categoria:
-        {values.name}
       </h1>
 
       <form onSubmit={function handleSubmit(e) {
@@ -51,7 +39,7 @@ function CadastroCategoria() {
           values,
         ]);
 
-        setValues(initialState);
+        clearForm();
       }}
       >
 
@@ -79,7 +67,7 @@ function CadastroCategoria() {
           onChange={handleChange}
         />
 
-        <Button>
+        <Button type="submit">
           Cadastrar
         </Button>
       </form>
