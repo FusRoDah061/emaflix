@@ -16,6 +16,8 @@ Plataforma de compartilhamento de vídeos contruído durante a semana da Imersã
 ```shell
 git clone https://github.com/FusRoDah061/emaflix.git
 
+npm i
+
 # Subindo simultaneamente backend e frontend
 npm run dev
 
